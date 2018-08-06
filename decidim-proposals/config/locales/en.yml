@@ -49,6 +49,12 @@ en:
         one: Vote
         other: Votes
   decidim:
+    badges:
+      proposals:
+        name: Proposals
+        description_own: You have created %{score} proposals.
+        description_another: This user has created %{score} proposals.
+        next_level_in: Create %{score} more proposals to reach the next level!
     components:
       proposals:
         actions:

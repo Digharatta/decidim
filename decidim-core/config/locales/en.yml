@@ -541,6 +541,7 @@ en:
     profiles:
       default_officialization_text: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
       show:
+        badges: Badges
         followers: Followers
         following: Follows
         notifications: Notifications

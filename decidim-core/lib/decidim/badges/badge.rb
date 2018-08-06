@@ -3,7 +3,8 @@
 module Decidim
   module Badges
     class Badge
-      attr_reader :name, :levels
+      attr_reader :name
+      attr_writer :levels
 
       def initialize(name)
         @name = name
@@ -11,6 +12,14 @@ module Decidim
 
       def levels
         @levels || []
+      end
+
+      def level_count
+        levels.length
+      end
+
+      def image
+        ActionController::Base.helpers.asset_path("decidim/badges/#{name}.svg")
       end
     end
   end

@@ -123,6 +123,12 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Proposals::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Proposals::Engine.root}/app/views") # for proposal partials
       end
+
+      initializer "decidim_proposals.add_badges" do
+        Decidim.register_badge(:proposals) do |badge|
+          badge.levels = [1, 5, 10, 30, 60]
+        end
+      end
     end
   end
 end
