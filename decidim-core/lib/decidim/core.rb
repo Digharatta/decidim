@@ -64,7 +64,7 @@ module Decidim
   autoload :DataPortabilitySerializers, "decidim/data_portability_serializers"
   autoload :DataPortabilityFileReader, "decidim/data_portability_file_reader"
   autoload :DataPortabilityFileZipper, "decidim/data_portability_file_zipper"
-  autoload :Badges, "decidim/badges"
+  autoload :Gamification, "decidim/gamification"
 
   include ActiveSupport::Configurable
 
@@ -365,17 +365,5 @@ module Decidim
   # Public: Stores an instance of Traceability
   def self.traceability
     @traceability ||= Traceability.new
-  end
-
-  def self.badge_registry
-    @badge_registry ||= Decidim::Badges::BadgeRegistry.new
-  end
-
-  def self.badges
-    badge_registry.badges
-  end
-
-  def self.register_badge(name, &block)
-    badge_registry.register(name, &block)
   end
 end

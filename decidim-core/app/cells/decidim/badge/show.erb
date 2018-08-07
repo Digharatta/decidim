@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class="card__text text-center">
-          <strong><%= t "decidim.badges.#{badge.name}.name" %></strong>
+          <strong><%= badge_name %></strong>
         </div>
         <div class="card__text text-center">
           <%= description %>
@@ -24,7 +24,7 @@
          <div class="p-xs">
            <div class="flex--sbc">
               <strong class="text-uppercase muted">
-                Level <%= status.level %>
+                <%= t 'decidim.gamification.level', level: status.level %>
               </strong>
               <div class="badge-level">
                 <% badge.level_count.times.each do |level| %>

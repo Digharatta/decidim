@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Badges
+  module Gamification
     class Badge
       attr_reader :name
       attr_writer :levels
@@ -19,7 +19,7 @@ module Decidim
       end
 
       def image
-        ActionController::Base.helpers.asset_path("decidim/badges/#{name}.svg")
+        ActionController::Base.helpers.asset_path("decidim/gamification/badges/#{name}.svg")
       end
     end
   end

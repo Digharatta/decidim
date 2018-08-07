@@ -49,12 +49,6 @@ en:
         one: Vote
         other: Votes
   decidim:
-    badges:
-      proposals:
-        name: Proposals
-        description_own: You have created %{score} proposals.
-        description_another: This user has created %{score} proposals.
-        next_level_in: Create %{score} more proposals to reach the next level!
     components:
       proposals:
         actions:
@@ -149,6 +143,13 @@ en:
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: Proposals voting has started for %{participatory_space_title}
           notification_title: You can now start <a href="%{resource_path}">voting proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+    gamification:
+      badges:
+        proposals:
+          name: Proposals
+          description_own: You have created %{score} proposals.
+          description_another: This user has created %{score} proposals.
+          next_level_in: Create %{score} more proposals to reach the next level!
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:

@@ -125,7 +125,7 @@ module Decidim
       end
 
       initializer "decidim_proposals.add_badges" do
-        Decidim.register_badge(:proposals) do |badge|
+        Decidim::Gamification.register_badge(:proposals) do |badge|
           badge.levels = [1, 5, 10, 30, 60]
         end
       end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Badges
+  module Gamification
     class BadgeRegistry
       attr_reader :badges
 

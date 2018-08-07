@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Badges
+  module Gamification
     class BadgeStatus
       def initialize(user, badge_name)
         @user = user
-        @badge = Decidim.badges[badge_name]
+        @badge = Decidim::Gamification.find_badge(badge_name)
       end
 
       def level
@@ -21,7 +21,7 @@ module Decidim
       end
 
       def next_level_in
-        return nil if level >= badge.levels.count
+        return nil if level >= @badge.levels.count
         @badge.levels[level] - score
       end
 
