@@ -14,8 +14,12 @@ module Decidim
       BadgeStatus.new(user, badge_name)
     end
 
-    def self.increment_score(user, badge_name)
-      BadgeScorer.new(user, badge_name).increment
+    def self.increment_score(user, badge_name, amount = 1)
+      BadgeScorer.new(user, badge_name).increment(amount)
+    end
+
+    def self.set_score(user, badge_name, score)
+      BadgeScorer.new(user, badge_name).set(score)
     end
 
     def self.badge_registry
@@ -23,15 +27,29 @@ module Decidim
     end
 
     def self.badges
-      badge_registry.badges
+      badge_registry.all
     end
 
     def self.find_badge(name)
-      badges[name.to_sym]
+      badge_registry.find(name)
     end
 
     def self.register_badge(name, &block)
       badge_registry.register(name, &block)
+    end
+
+    def self.reset_badges(users = User.all)
+      badges.each do |badge|
+        Rails.logger.info "Resetting #{badge.name}..."
+
+        if badge.reset
+          users.find_each do |user|
+            set_score(user, badge.name, badge.reset.call(user))
+          end
+        else
+          Rails.logger.info "Badge can't be reset since it doesn't have a reset method."
+        end
+      end
     end
   end
 end

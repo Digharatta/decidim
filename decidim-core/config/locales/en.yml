@@ -384,6 +384,8 @@ en:
         error: There's an error in this field.
       remove_this_file: Remove this file
     gamification:
+      description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
+      reached_top: You've reached the top level for this badge.
       level: Level %{level}
     invitations:
       create:

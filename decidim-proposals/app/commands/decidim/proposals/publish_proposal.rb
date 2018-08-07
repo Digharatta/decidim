@@ -24,6 +24,7 @@ module Decidim
 
         transaction do
           @proposal.update published_at: Time.current
+          Decidim::Gamification.increment_score(@current_user, :proposals)
           send_notification
           send_notification_to_participatory_space
         end

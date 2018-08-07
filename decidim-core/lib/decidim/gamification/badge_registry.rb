@@ -3,14 +3,22 @@
 module Decidim
   module Gamification
     class BadgeRegistry
-      attr_reader :badges
-
       def initialize
         @badges = {}
       end
 
+      def all
+        @badges.values
+      end
+
+      def find(name)
+        @badges[name.to_s]
+      end
+
       def register(name, &block)
-        @badges[name.to_sym] = Badge.new(name).tap do |badge|
+        name = name.to_s
+
+        @badges[name] = Badge.new(name: name).tap do |badge|
           badge.instance_eval(&block)
         end
       end

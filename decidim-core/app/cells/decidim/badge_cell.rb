@@ -21,15 +21,27 @@ module Decidim
     end
 
     def description
-      if user == current_user
+      if user == current_user && status.level.zero?
+        t "decidim.gamification.badges.#{badge.name}.unearned_own"
+      elsif user == current_user && status.level.positive?
         t "decidim.gamification.badges.#{badge.name}.description_own", score: status.score
-      else
+      elsif user != current_user && status.level.zero?
+        t "decidim.gamification.badges.#{badge.name}.unearned_another"
+      elsif user != current_user && status.level.positive?
         t "decidim.gamification.badges.#{badge.name}.description_another", score: status.score
       end
     end
 
-    def next_level_in
-      t "decidim.gamification.badges.#{badge.name}.next_level_in", score: status.next_level_in if status.next_level_in
+    def tooltip
+      if user == current_user
+        if status.next_level_in
+          t "decidim.gamification.badges.#{badge.name}.next_level_in", score: status.next_level_in
+        else
+          t "decidim.gamification.reached_top"
+        end
+      else
+        t "decidim.gamification.badges.#{badge.name}.explanation"
+      end
     end
 
     def badge_name

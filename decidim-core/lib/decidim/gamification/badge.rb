@@ -3,16 +3,11 @@
 module Decidim
   module Gamification
     class Badge
-      attr_reader :name
-      attr_writer :levels
+      include Virtus.model
 
-      def initialize(name)
-        @name = name
-      end
-
-      def levels
-        @levels || []
-      end
+      attribute :name, String
+      attribute :levels, Array, default: []
+      attribute :reset, Proc
 
       def level_count
         levels.length

@@ -149,7 +149,10 @@ en:
           name: Proposals
           description_own: You have created %{score} proposals.
           description_another: This user has created %{score} proposals.
+          explanation: Users get this badge by creating proposals.
           next_level_in: Create %{score} more proposals to reach the next level!
+          unearned_own: You have created no proposals yet.
+          unearned_another: This user hasn't created any proposals yet.
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
