@@ -3,21 +3,13 @@
 module Decidim
   module Gamification
     class BadgeStatus
-      def initialize(user, badge_name)
+      def initialize(user, badge)
         @user = user
-        @badge = Decidim::Gamification.find_badge(badge_name)
+        @badge = badge
       end
 
       def level
-        level = 0
-
-        return level unless score
-
-        @badge.levels.each_with_index do |threshold, index|
-          score >= threshold ? level = index + 1 : break
-        end
-
-        level
+        @badge.level_of(score)
       end
 
       def next_level_in
@@ -26,7 +18,7 @@ module Decidim
       end
 
       def score
-        @score ||= BadgeScore.find_by(user: @user, badge_name: @badge.name).try(:value)
+        @score ||= BadgeScore.find_by(user: @user, badge_name: @badge.name).try(:value) || 0
       end
     end
   end

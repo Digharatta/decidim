@@ -17,6 +17,12 @@ module Decidim
           expect { described_class.call(proposal_draft, current_user) }.to broadcast(:ok)
         end
 
+        it "scores on the proposals badge" do
+          expect { described_class.call(proposal_draft, current_user) }.to change {
+            Decidim::Gamification.status_for(current_user, :proposals).score
+          }.by(1)
+        end
+
         it "broadcasts invalid when the proposal is from another author" do
           expect { described_class.call(proposal_draft, follower) }.to broadcast(:invalid)
         end

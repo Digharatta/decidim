@@ -3,16 +3,16 @@
 module Decidim
   module Gamification
     class BadgeScorer
-      def initialize(user, badge_name)
+      def initialize(user, badge)
         @user = user
-        @badge_name = badge_name
+        @badge = badge
       end
 
       def increment(amount = 1)
         with_level_tracking do
           BadgeScore.find_or_create_by(
             user: @user,
-            badge_name: @badge_name
+            badge_name: @badge.name
           ).increment(:value, amount).save!
         end
       end
@@ -21,7 +21,7 @@ module Decidim
         with_level_tracking do
           BadgeScore.find_or_create_by(
             user: @user,
-            badge_name: @badge_name
+            badge_name: @badge.name
           ).update!(value: score)
         end
       end
@@ -29,11 +29,11 @@ module Decidim
       private
 
       def with_level_tracking
-        previous_level = BadgeStatus.new(@user, @badge_name).level
+        previous_level = BadgeStatus.new(@user, @badge).level
 
         yield
 
-        current_status = BadgeStatus.new(@user, @badge_name)
+        current_status = BadgeStatus.new(@user, @badge)
         send_notification(previous_level, current_status.level)
         current_status
       end
@@ -61,7 +61,7 @@ module Decidim
           resource: @user,
           recipient_ids: [@user.id],
           extra: {
-            badge_name: @badge_name.to_s,
+            badge_name: @badge.name.to_s,
             previous_level: previous_level,
             current_level: current_level
           }

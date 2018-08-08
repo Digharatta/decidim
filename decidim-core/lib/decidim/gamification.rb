@@ -11,15 +11,15 @@ module Decidim
     autoload :LevelUpEvent, "decidim/gamification/level_up_event"
 
     def self.status_for(user, badge_name)
-      BadgeStatus.new(user, badge_name)
+      BadgeStatus.new(user, find_badge(badge_name))
     end
 
     def self.increment_score(user, badge_name, amount = 1)
-      BadgeScorer.new(user, badge_name).increment(amount)
+      BadgeScorer.new(user, find_badge(badge_name)).increment(amount)
     end
 
     def self.set_score(user, badge_name, score)
-      BadgeScorer.new(user, badge_name).set(score)
+      BadgeScorer.new(user, find_badge(badge_name)).set(score)
     end
 
     def self.badge_registry

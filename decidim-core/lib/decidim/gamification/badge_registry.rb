@@ -18,9 +18,13 @@ module Decidim
       def register(name, &block)
         name = name.to_s
 
-        @badges[name] = Badge.new(name: name).tap do |badge|
-          badge.instance_eval(&block)
+        badge = Badge.new(name: name).tap do |object|
+          object.instance_eval(&block)
         end
+
+        badge.validate!
+
+        @badges[name] = badge
       end
     end
   end

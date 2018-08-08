@@ -25,7 +25,7 @@
                 <%= t "decidim.gamification.level", level: status.level %>
               </strong>
               <div class="badge-level">
-                <% badge.level_count.times.each do |level| %>
+                <% badge.levels.each_with_index do |_threshold, level| %>
                   <div class="<%= "is-achieved" if status.level >= (level + 1) %>"></div>
                 <% end %>
               </div>
