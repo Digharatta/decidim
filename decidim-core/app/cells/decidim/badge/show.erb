@@ -8,7 +8,7 @@
       <div class="card__content">
         <div class="card__header">
           <div class="badge-container">
-            <%= image_tag badge.image, class: "badge__logo"%>
+            <%= image_tag badge.image, class: "badge__logo" %>
           </div>
         </div>
         <div class="card__text text-center">
@@ -22,11 +22,11 @@
          <div class="p-xs">
            <div class="flex--sbc">
               <strong class="text-uppercase muted">
-                <%= t 'decidim.gamification.level', level: status.level %>
+                <%= t "decidim.gamification.level", level: status.level %>
               </strong>
               <div class="badge-level">
                 <% badge.level_count.times.each do |level| %>
-                  <div class="<%= 'is-achieved' if status.level >= (level + 1) %>"></div>
+                  <div class="<%= "is-achieved" if status.level >= (level + 1) %>"></div>
                 <% end %>
               </div>
            </div>
