@@ -127,6 +127,7 @@ module Decidim
       initializer "decidim_proposals.add_badges" do
         Decidim::Gamification.register_badge(:proposals) do |badge|
           badge.levels = [1, 5, 10, 30, 60]
+
           badge.reset = lambda { |user|
             Decidim::Coauthorship.where(
               coauthorable_type: "Decidim::Proposals::Proposal",
