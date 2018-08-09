@@ -26,6 +26,10 @@ module Decidim
 
         @badges[name] = badge
       end
+
+      def unregister(name)
+        @badges.delete(name.to_s)
+      end
     end
   end
 end
