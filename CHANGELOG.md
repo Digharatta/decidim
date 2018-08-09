@@ -31,6 +31,7 @@
 - **decidim-meetings**: Allow admins to validate meeting registration codes and notify the user. [\#3833](https://github.com/decidim/decidim/pull/3833)
 - **decidim-core**: Make Users Searchable. [\#3796](https://github.com/decidim/decidim/pull/3796)
 - **decidim-participatory_processes**: Highlight the correct menu item when visiting a process group page [\#3737](https://github.com/decidim/decidim/pull/3737)
+- **decidim-participatory_processes**: Display a big card when there's just one process at the homepage [\#3970](https://github.com/decidim/decidim/pull/3970)
 
 **Changed**:
 
@@ -42,6 +43,7 @@
 - **decidim-core**: Load authorization modals content with AJAX requests. [\#3753](https://github.com/decidim/decidim/pull/3753)
 - **decidim-core**: Updated the `CollapsibleList` cell to be able to show any number of elements from 1 to 12 [\#3810](https://github.com/decidim/decidim/pull/3810)
 - **decidim-core**: Move the homepage sections from view hooks to content blocks [\#3839](https://github.com/decidim/decidim/pull/3839)
+- **decidim-core**: Move conversations to a profile tab. [\#3960](https://github.com/decidim/decidim/pull/3960)
 
 **Fixed**:
 
