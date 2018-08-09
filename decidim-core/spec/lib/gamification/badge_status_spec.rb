@@ -5,9 +5,10 @@ require "spec_helper"
 module Decidim
   module Gamification
     describe BadgeStatus do
+      subject { described_class.new(user, badge) }
+
       let(:user) { create(:user) }
       let(:badge) { Badge.new(name: "test", levels: [1, 2, 10, 50]) }
-      subject { described_class.new(user, badge) }
 
       describe "#score" do
         it "returns 0 when no score is stored" do

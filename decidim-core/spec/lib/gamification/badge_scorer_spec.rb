@@ -5,10 +5,10 @@ require "spec_helper"
 module Decidim
   module Gamification
     describe BadgeScorer do
+      subject { described_class.new(user, badge) }
+
       let(:user) { create(:user) }
       let(:badge) { Badge.new(name: "test", levels: [1, 3, 5]) }
-
-      subject { described_class.new(user, badge) }
 
       describe "#increment" do
         context "when there's no previous score" do
@@ -61,7 +61,7 @@ module Decidim
       end
 
       describe "notifications" do
-        context "badge earned notification" do
+        describe "badge earned notification" do
           it "sends a notification when earning a new badge" do
             expect(Decidim::EventsManager).to receive(:publish).with(
               hash_including(
@@ -80,7 +80,7 @@ module Decidim
           end
         end
 
-        context "new level notification" do
+        describe "new level notification" do
           it "sends a notification when reaching a new level" do
             expect(Decidim::EventsManager).to receive(:publish).with(
               hash_including(
