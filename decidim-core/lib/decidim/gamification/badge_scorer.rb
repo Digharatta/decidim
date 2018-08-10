@@ -2,12 +2,24 @@
 
 module Decidim
   module Gamification
+    # This class is responsible of updating scores given a user and a badge. Will
+    # also trigger any side-effects such as notifications.
     class BadgeScorer
+      # Public: Initializes the class.
+      #
+      # user  - The user for which to update scores.
+      # badge - The `Badge` to update.
+      #
       def initialize(user, badge)
         @user = user
         @badge = badge
       end
 
+      # Public: Increments the score for the user and badge.
+      #
+      # amount - Amount to increase. Defaults to 1.
+      #
+      # Returns a `BadgeScore`.
       def increment(amount = 1)
         with_level_tracking do
           BadgeScore.find_or_create_by(
@@ -17,6 +29,11 @@ module Decidim
         end
       end
 
+      # Public: Sets the score for the user and badge.
+      #
+      # score - Score to set.
+      #
+      # Returns a `BadgeScore`.
       def set(score)
         with_level_tracking do
           BadgeScore.find_or_create_by(
