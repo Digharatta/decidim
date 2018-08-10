@@ -6,16 +6,6 @@ describe "Gamification", type: :system do
   let!(:organization) { create(:organization) }
   let(:user) { create :user, :confirmed, organization: organization }
 
-  around do |spec|
-    Decidim::Gamification.register_badge(:test) do |badge|
-      badge.levels = [1, 5, 10]
-    end
-
-    spec.run
-
-    Decidim::Gamification.badge_registry.unregister(:test)
-  end
-
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user

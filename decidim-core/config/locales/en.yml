@@ -1,4 +1,3 @@
----
 en:
   activemodel:
     attributes:
@@ -44,8 +43,8 @@ en:
         one: User group
         other: User groups
   booleans:
-    'false': 'No'
-    'true': 'Yes'
+    "false": "No"
+    "true": "Yes"
   carrierwave:
     errors:
       image_too_big: The image is too big
@@ -293,8 +292,8 @@ en:
           see_email: See your email
           see_name: See your name
           see_username: See your username
-          this_application_will_be_able_to: 'This application will be able to:'
-          this_application_will_not_be_able_to: 'This application will not be able to:'
+          this_application_will_be_able_to: "This application will be able to:"
+          this_application_will_not_be_able_to: "This application will not be able to:"
           update_profile: Update your profile
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> wants to use your account"
     errors:
@@ -308,13 +307,13 @@ en:
     events:
       attachments:
         attachment_created:
-          email_intro: 'A new document has been added to %{resource_title}. You can see it from this page:'
+          email_intro: "A new document has been added to %{resource_title}. You can see it from this page:"
           email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
           email_subject: An update to %{resource_title}
           notification_title: A <a href="%{resource_path}">new document</a> has been added to <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:'
+          email_intro: "The %{resource_title} component is now active for %{participatory_space_title}. You can see it from this page:"
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: An update to %{participatory_space_title}
           notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
@@ -327,12 +326,12 @@ en:
         badge_earned:
           email_intro: Great job! You've earned the <a href="%{resource_path}">%{badge_name} badge</a> (level %{current_level}).
           email_outro: You have received this notification because you made activity on our website.
-          email_subject: 'You''ve earned a new badge: %{badge_name}!'
+          email_subject: "You've earned a new badge: %{badge_name}!"
           notification_title: Great job! You've earned the <a href="%{resource_path}">%{badge_name} badge</a> (level %{current_level}).
         level_up:
           email_intro: Great job! You've reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
           email_outro: You have received this notification because you made activity on our website.
-          email_subject: You've reached %{current_level} on the %{badge_name} badge!
+          email_subject: You've reached level %{current_level} on the %{badge_name} badge!
           notification_title: Great job! You've reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
@@ -394,7 +393,7 @@ en:
         success: We've sent the invites to your friends!
       index:
         customize_message: Customize the invitation message
-        friend_email: 'Friend #%{index} email'
+        friend_email: "Friend #%{index} email"
         invitations_subtitle: Let your friends know about this site
         invitations_title: Do you think more voices should be heard in %{organization_name}?
         invite: Invite
@@ -411,13 +410,13 @@ en:
         update_with_space: "%{user_name} updated %{resource_name} in %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'The area was not found on the database (ID: %{id})'
+          not_found: "The area was not found on the database (ID: %{id})"
         area_type_presenter:
-          not_found: 'The area type was not found on the database (ID: %{id})'
+          not_found: "The area type was not found on the database (ID: %{id})"
         scope_presenter:
-          not_found: 'The scope was not found on the database (ID: %{id})'
+          not_found: "The scope was not found on the database (ID: %{id})"
         scope_type_presenter:
-          not_found: 'The scope type was not found on the database (ID: %{id})'
+          not_found: "The scope type was not found on the database (ID: %{id})"
     managed_users:
       expired_session: The current impersonation session has expired.
     menu:
@@ -471,7 +470,7 @@ en:
     newsletters_opt_in_mailer:
       notify:
         body_1: The processing of personal data and its protection is becoming increasingly important for all of us. With the new General Data Protection Regulation (GDPR) of May 25, 2018, individuals have better control over their personal data. For this reason we need your "OK" to continue sending relevant information about the activities of the %{organization_name}.
-        body_2: 'How can you give us your consent? Just click the following button:'
+        body_2: "How can you give us your consent? Just click the following button:"
         body_3: With this consent you will be able to continue receiving information about the services of the platform. If, on the contrary, we do not receive a positive confirmation on your part we will stop sending you our messages. If you confirm that you want to keep being informed, you will always have the option to cancel at any time.
         button: Yes, I want to continue receiving relevant information
         greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
@@ -549,7 +548,7 @@ en:
         required_review:
           alert: We've updated our Terms of Service, please review them.
           body: Please take a moment to review updates to our Terms of Services. Otherwise you won't be able to use the platform.
-          title: 'Required: Review updates to our terms of service'
+          title: "Required: Review updates to our terms of service"
     participatory_space_private_users:
       not_allowed: You are not allowed to view this content
     profile:
@@ -622,9 +621,9 @@ en:
         please_sign_in: Please sign in
         sign_up: Sign up
       reference:
-        reference: 'Reference: %{reference}'
+        reference: "Reference: %{reference}"
       results_per_page:
-        label: 'Results per page:'
+        label: "Results per page:"
       share_modal:
         close_window: Close window
         share: Share
@@ -658,8 +657,8 @@ en:
       invite_collaborator:
         subject: You've been invited to collaborate on %{organization}
       invite_friend:
-        accept_invitation: 'You can accept the invitation through the link below:'
-        friend_custom_text: 'They left this message for you:'
+        accept_invitation: "You can accept the invitation through the link below:"
+        friend_custom_text: "They left this message for you:"
         subject: You've been invited to %{organization}
       invite_private_user:
         subject: You've been invited to a private participatory process on %{organization}

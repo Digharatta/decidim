@@ -8,10 +8,6 @@ module Decidim
 
     delegate :current_user, to: :controller, prefix: false
 
-    def show
-      render :show
-    end
-
     def badge
       @options[:badge]
     end
@@ -51,7 +47,7 @@ module Decidim
     private
 
     def status
-      Decidim::Gamification.status_for(user, badge.name)
+      @status ||= Decidim::Gamification.status_for(user, badge.name)
     end
   end
 end

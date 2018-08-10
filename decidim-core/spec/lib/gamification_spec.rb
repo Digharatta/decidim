@@ -4,17 +4,6 @@ require "spec_helper"
 
 module Decidim
   describe Gamification do
-    around do |spec|
-      Decidim::Gamification.register_badge(:test) do |badge|
-        badge.levels = [1, 5, 10]
-        badge.reset = lambda do |user|
-          user.id
-        end
-      end
-      spec.run
-      Decidim::Gamification.badge_registry.unregister(:test)
-    end
-
     let!(:user) { create(:user) }
 
     describe "#status_for" do
@@ -27,7 +16,7 @@ module Decidim
     describe "#reset_badges" do
       it "resets all badges to their original status" do
         Gamification.reset_badges(User.where(id: user.id))
-        expect(Gamification.status_for(user, :test).score).to eq(user.id)
+        expect(Gamification.status_for(user, :test).score).to eq(100)
       end
     end
 
