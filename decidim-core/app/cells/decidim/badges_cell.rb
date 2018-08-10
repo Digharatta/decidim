@@ -7,10 +7,6 @@ module Decidim
 
     delegate :current_user, to: :controller
 
-    def show
-      render :show
-    end
-
     def user
       model
     end
