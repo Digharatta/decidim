@@ -37,6 +37,9 @@ module Decidim
             create(:follow, followable: component.participatory_space, user: follower)
             create(:follow, followable: component.participatory_space, user: other_follower)
 
+            allow(Decidim::EventsManager).to receive(:publish)
+              .with(hash_including(event: "decidim.events.gamification.badge_earned"))
+
             expect(Decidim::EventsManager)
               .to receive(:publish)
               .with(
@@ -44,7 +47,7 @@ module Decidim
                 event_class: Decidim::Proposals::PublishProposalEvent,
                 resource: kind_of(Decidim::Proposals::Proposal),
                 recipient_ids: [follower.id]
-              ).ordered
+              )
 
             expect(Decidim::EventsManager)
               .to receive(:publish)
@@ -56,7 +59,7 @@ module Decidim
                 extra: {
                   participatory_space: true
                 }
-              ).ordered
+              )
 
             subject.call
           end
