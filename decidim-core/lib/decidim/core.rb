@@ -82,6 +82,7 @@ module Decidim
     end
 
     Decidim.participatory_space_manifests.each(&:seed!)
+    Decidim::Gamification.reset_badges
 
     I18n.available_locales = original_locale
   end
